@@ -1,0 +1,46 @@
+###
+GET http://localhost:6500/htmarketgetallproducts
+
+###
+POST http://localhost:6500/htmarketregisternewproduct
+content-type: application/json
+
+{
+    "name": "Curva tubo-rosca macho para tubo de alumínio", 
+    "price":"12.57€",
+    "oldprice":"38.77€", 
+    "description":"A gama Infinity desenvolvida e produzida integralmente pela Aignep, nasce nos anos 2000, para responder às exigências de mercado, sempre crescente e visando o desenvolvimento de sistemas de distribuição de ar tecnológicos e modernos como alternativa às redes de ar de aço galvanizado ou tubos plásticos colados ou soldados. A escolha passa pelo desejo de propor uma tecnologia única, como sistema de Engate Rápido, para todos os diâmetros.. Através deste sistema, foi possível eliminar a necessidade de equipamentos e ferramentas específicas e de alto custo na montagem das redes. Os tubos e conexões metálicas asseguram a robustez e a alta performance da rede de ar.",
+    "category":"665f09d7895b0ecccf8ef0b9", 
+    "subcategorie":"",
+    "code":0,  
+    "stockamount":10
+} 
+
+
+###
+POST http://localhost:6500/htmarketuploadimages
+content-type: application/json
+
+{
+    "name": "https://www.htmarkt.hightech-airer.pt/wp-content/uploads/2020/05/curvaroscamacho.png", 
+    "code":"666313f5ede9091bc7f2df60" 
+} 
+
+
+###
+POST http://localhost:6500/htmarketregisternewcategorie
+content-type: application/json
+
+{
+    "name": "Equipamentos"
+} 
+
+
+###
+POST http://localhost:6500/htmarketregisternewsubcategorie
+content-type: application/json
+
+{
+    "name": " ", 
+    "categorie":"665f0a59895b0ecccf8ef0bd"
+} 
