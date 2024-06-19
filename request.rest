@@ -1,19 +1,24 @@
 ###
-GET http://localhost:6500/htmarketgetallproducts
+GET https://eduallserver.eduallsys.com
+
+###
+GET https://goldpetserver.vercel.app/htmarketgetallproducts
 
 ###
 POST http://localhost:6500/htmarketregisternewproduct
 content-type: application/json
 
 {
-    "name": "Curva tubo-rosca macho para tubo de alumínio", 
-    "price":"12.57€",
-    "oldprice":"38.77€", 
-    "description":"A gama Infinity desenvolvida e produzida integralmente pela Aignep, nasce nos anos 2000, para responder às exigências de mercado, sempre crescente e visando o desenvolvimento de sistemas de distribuição de ar tecnológicos e modernos como alternativa às redes de ar de aço galvanizado ou tubos plásticos colados ou soldados. A escolha passa pelo desejo de propor uma tecnologia única, como sistema de Engate Rápido, para todos os diâmetros.. Através deste sistema, foi possível eliminar a necessidade de equipamentos e ferramentas específicas e de alto custo na montagem das redes. Os tubos e conexões metálicas asseguram a robustez e a alta performance da rede de ar.",
-    "category":"665f09d7895b0ecccf8ef0b9", 
+    "name": "Secadores de adsorção modulares ADM-DRY com tempo de ciclo fixo controlado, pré e pós-filtros pré-instalados, fluxo volumétrico de até 1,5 m3/min", 
+    "price":null,
+    "oldprice":null, 
+    "description":"Os secadores refrigerados da série RDX com capacidade de 0,4-36,0 m3/min são equipados com um eficiente trocador de calor em alumínio fundido e um separador de coalescência integrado. O baixo grau de perda de pressão devido ao separador incorporado e ao isolamento externo confiável do trocador de calor facilitam um alto nível de eficiência energética para o sistema. O separador coalescente é insensível a flutuações de pressão no caso de carga variável e remove de forma confiável até 98% da umidade condensada.",
+    "category":"665f0704895b0ecccf8ef0ab", 
     "subcategorie":"",
+    "brand":"comprag",
+    "serie":"667153a8f3c0c102f638b521",
     "code":0,  
-    "stockamount":10
+    "stockamount":34
 } 
 
 
@@ -22,10 +27,24 @@ POST http://localhost:6500/htmarketuploadimages
 content-type: application/json
 
 {
-    "name": "https://www.htmarkt.hightech-airer.pt/wp-content/uploads/2020/05/curvaroscamacho.png", 
-    "code":"666313f5ede9091bc7f2df60" 
+    "name": "https://www.comprag.com/en/comprag/img_pop/11_rdx.jpg", 
+    "code":"66719327a7f181ae175393f3" 
 } 
 
+
+
+
+###
+POST http://localhost:6500/htmarketregisternewproductserie
+content-type: application/json
+
+{
+    "name": "RDX", 
+    "subcategorie":"665f0691895b0ecccf8ef0a1" 
+} 
+
+
+ 
 
 ###
 POST http://localhost:6500/htmarketregisternewcategorie

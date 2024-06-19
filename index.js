@@ -8,17 +8,19 @@ const Router = require("./Routes/Index");
 const ServerApp = express();
 
 // This line of code allow us to  connect with mongoDB database  { }
+//hg
+
 
 const DatabaseConnect  =  async()=>{
     moongose.connect("mongodb+srv://hightech:123HIJP99@cluster0.bkueuua.mongodb.net", 
-    {useNewUrlParser:true});
+    {useNewUrlParser:true}); //  NyGgET8LY31LQVnG    NyGgET8LY31LQVnG
     const Database = moongose.connection;
     try {
         Database.on("error", (error)=>{
            console.log("Something  went very wrong 1  - ", error);  
         });
         Database.once("open", ()=>{
-            console.log("Well Done database connected ....");
+            console.log("Well Done database connected kiosso  ....");
         });
     } catch (error) {
         console.log("Something  went very wrong 2  - ", error);  
@@ -29,7 +31,7 @@ DatabaseConnect();
 // allow request  methods on express server
 
 ServerApp.use( function(req, res, next){ 
-   res.setHeader("Access-Control-Allow-Origin", "https://testes.hightech-airer.pt"); // This will allow our frontend to have access to the APIS 
+   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000"); // This will allow our frontend to have access to the APIS 
    res.setHeader("Access-Control-Allow-Methods", "GET", "POST", "PUT", "PATCH", "DELETE");  // Allow commom action  methods 
    res.setHeader("Access-Control-Allow-Headers", "X-Request-With,content-type");
    res.setHeader("Access-Control-Allow-Credentials", true);

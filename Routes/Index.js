@@ -3,6 +3,7 @@ const { ShowAllProducts, AddNewProduct, uploadImageFile, DeleteProduct, ShowSing
 const GetProduct = require("../Middlewares/GetProduct");
 const { GetCategories, AddNewCategorie } = require("../Controllers/CategoriesController");
 const { AddNewSubCategorie } = require("../Controllers/SubCategoriesController");
+ const {AddNewProductSerie, ShowAllProductsSeriesBySubCategorie, DeleteProductSerie} = require("../Controllers/ProductSeriesController");
  const Router = express.Router();
 
 
@@ -19,6 +20,12 @@ const { AddNewSubCategorie } = require("../Controllers/SubCategoriesController")
  Router.get("/htmarketgetallcategories/",  GetCategories);
  Router.post("/htmarketregisternewcategorie/", AddNewCategorie);
  Router.post("/htmarketregisternewsubcategorie/", AddNewSubCategorie)
+
+
+ Router.get("/htmarketgetallproductsseriesbysub/:id", ShowAllProductsSeriesBySubCategorie);
+ Router.post("/htmarketregisternewproductserie/", AddNewProductSerie);
+ Router.delete("/htmarketdeleteproductserie/:id", GetProduct,  DeleteProductSerie);
+
 
 
 

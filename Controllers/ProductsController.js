@@ -4,7 +4,8 @@ const FilesSchema = require("../Models/FilesModel");
 const  multer = require(`multer`);  
 const stream = require("stream");   
 const { google } = require("googleapis");  
-
+const CategorieSchema = require("../Models/Categories"); 
+const ProductSeriesSchema = require("../Models/ProductSeries"); 
 
 
 
@@ -25,25 +26,28 @@ async function ShowAllProducts(req, res) {
 async function ShowSingleProduct(req, res) {
     try {
         let data = await FilesSchema.find({ file_product_code: res.product._id});
+        let Categorie = await CategorieSchema.findById(res.product.product_categorie);
         if (data.length <= 0) data = [];
-        res.status(200).json({ content: res.product, images: data });
+        res.status(200).json({ content: res.product, images: data, categorie:Categorie});
     } catch (error) {
         res.status(500).json({ message: "Errro while loading single product data", error: error });
     }
 }
 
-
+ 
 
 async function AddNewProduct(req, res) {
     console.log(req.body);
     const Inputs = new ProductsSchema({
         product_name: req.body.name, 
-        product_price: req.body.price,
+        product_price: req.body.price, 
         product_oldprice: req.body.oldprice, 
         product_description: req.body.description,
         product_categorie: req.body.category,
-         product_subcategorie: req.subcategorie,
+        product_subcategorie: req.subcategorie,
         product_code: req.body.code, 
+        product_brand:req.body.brand,
+        product_serie:req.body.serie,
         product_stockAmount: req.body.stockamount
     });
 
