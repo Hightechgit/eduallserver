@@ -6,14 +6,11 @@ const session =  require("express-session");
 const passport = require("passport");
 const Router = require("./Routes/Index");
 const ServerApp = express();
-
-// This line of code allow us to  connect with mongoDB database  { }
-//hg
-
+ 
 
 const DatabaseConnect  =  async()=>{
     moongose.connect("mongodb+srv://hightech:123HIJP99@cluster0.bkueuua.mongodb.net", 
-    {useNewUrlParser:true}); //  NyGgET8LY31LQVnG    NyGgET8LY31LQVnG
+    {useNewUrlParser:true}); 
     const Database = moongose.connection;
     try {
         Database.on("error", (error)=>{
@@ -51,4 +48,6 @@ ServerApp.use(Router);
 //ServerApp.use();
 
 
-ServerApp.listen();
+ServerApp.listen(6500, ()=>{
+   console.log("Server is running without  issues ...")
+});

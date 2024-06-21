@@ -9,10 +9,10 @@ POST http://localhost:6500/htmarketregisternewproduct
 content-type: application/json
 
 {
-    "name": "Secadores de adsorção modulares ADM-DRY com tempo de ciclo fixo controlado, pré e pós-filtros pré-instalados, fluxo volumétrico de até 1,5 m3/min", 
+    "name": "Secadores de adsorção ADX-F com tempo de ciclo fixo controlado com pré e pós-filtros instalados, capacidade até 25,0 m3/min", 
     "price":null,
     "oldprice":null, 
-    "description":"Os secadores refrigerados da série RDX com capacidade de 0,4-36,0 m3/min são equipados com um eficiente trocador de calor em alumínio fundido e um separador de coalescência integrado. O baixo grau de perda de pressão devido ao separador incorporado e ao isolamento externo confiável do trocador de calor facilitam um alto nível de eficiência energética para o sistema. O separador coalescente é insensível a flutuações de pressão no caso de carga variável e remove de forma confiável até 98% da umidade condensada.",
+    "description":"Os secadores de adsorção Comprag funcionam em seu ponto ideal de trabalho com uma duração de ciclo de 10 minutos. A redução do número de ciclos de sopro de desidratação reduz a carga operacional nos receptores, válvulas e dessecante. Além disso, um ciclo longo reduz a perda de pressão do ar durante a restauração da pressão operacional no receptor após um ciclo de regeneração. Um ciclo de secagem de dois minutos utilizando ar comprimido seco para purgar a coluna que está sendo regenerada consome momentaneamente cerca de 7,5% do ar comprimido seco. Os secadores por adsorção Comprag ADX funcionando em um ciclo de dez minutos usam, em média, apenas cerca de 1% da quantidade total de ar purificado.",
     "category":"665f0704895b0ecccf8ef0ab", 
     "subcategorie":"",
     "brand":"comprag",
@@ -27,9 +27,13 @@ POST http://localhost:6500/htmarketuploadimages
 content-type: application/json
 
 {
-    "name": "https://www.comprag.com/en/comprag/img_pop/11_rdx.jpg", 
-    "code":"66719327a7f181ae175393f3" 
+    "name": "https://www.comprag.com/en/comprag/img_pop/05_adx.jpg", 
+    "code":"667458f3ff7b3a85f8f6a11c" 
 } 
+
+
+###
+GET  http://localhost:6500/
 
 
 
@@ -60,6 +64,6 @@ POST http://localhost:6500/htmarketregisternewsubcategorie
 content-type: application/json
 
 {
-    "name": " ", 
-    "categorie":"665f0a59895b0ecccf8ef0bd"
+    "name": "SECADORES DE ADSORÇÃO ADX-F", 
+    "categorie":"665f0704895b0ecccf8ef0ab"
 } 

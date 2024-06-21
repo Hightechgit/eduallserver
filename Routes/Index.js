@@ -7,7 +7,9 @@ const { AddNewSubCategorie } = require("../Controllers/SubCategoriesController")
  const Router = express.Router();
 
 
-
+ Router.get("/", (req, res)=>{
+    res.json("Hi world !")  
+ });
 
  Router.get("/htmarketgetallproducts/", ShowAllProducts);
  Router.post("/htmarketregisternewproduct/", AddNewProduct);
