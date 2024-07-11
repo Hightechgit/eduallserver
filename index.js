@@ -36,10 +36,7 @@ ServerApp.use( function(req, res, next){
    next(); 
 });
 
-ServerApp.use(cors({
-  origin: 'https://www.htmarkt.hightech-airer.pt'
-}));
-
+ 
 
 //  Making some extra configurations   like cookie and session  storage as well as some parsing and others
  
