@@ -5,7 +5,8 @@ const  multer = require(`multer`);
 const stream = require("stream");   
 const { google } = require("googleapis");  
 const CategorieSchema = require("../Models/Categories"); 
-const ProductSeriesSchema = require("../Models/ProductSeries"); 
+const ProductSeriesSchema = require("../Models/ProductSeries");  
+const SubCategorieSchema = require("../Models/SubCategories");
 
 
 
@@ -22,6 +23,22 @@ async function ShowAllProducts(req, res) {
         res.status(500).json({ message: "Something went wrong loading the data *", error: error });
     }
 }
+
+
+
+async function ShowAllElements(req, res) { 
+    try {
+        let cat = await CategorieSchema.find();
+        let subcat = await SubCategorieSchema.find();
+        let series = await ProductSeriesSchema.find();  
+        res.status(200).json({series:series, subcategories:subcat, categories:cat});
+    } catch (error) {
+        res.status(500).json({ message: "Something went wrong loading the data *", error: error });
+    }
+}
+
+
+
 
 async function ShowSingleProduct(req, res) {
     try {
@@ -141,4 +158,4 @@ async function DeleteProduct(req, res) {
 
  
 
-module.exports = { ShowAllProducts,  ShowSingleProduct, uploadImageFile , AddNewProduct , UpdateProduct, DeleteProduct};
+module.exports = { ShowAllProducts,  ShowSingleProduct, uploadImageFile ,ShowAllElements, AddNewProduct , UpdateProduct, DeleteProduct};
