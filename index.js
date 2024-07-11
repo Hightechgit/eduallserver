@@ -28,7 +28,7 @@ DatabaseConnect();
 // allow request  methods on express server
 
 ServerApp.use( function(req, res, next){ 
-   res.setHeader("Access-Control-Allow-Origin", "https://www.htmarkt.hightech-airer.pt"); // This will allow our frontend to have access to the APIS 
+   res.setHeader("Access-Control-Allow-Origin", "https://htmarkt.hightech-airer.pt"); // This will allow our frontend to have access to the APIS 
    res.setHeader("Access-Control-Allow-Methods", "GET", "POST", "PUT", "PATCH", "DELETE");  // Allow commom action  methods 
    res.setHeader("Access-Control-Allow-Headers", "X-Request-With,content-type");
    res.setHeader("Access-Control-Allow-Credentials", true);
