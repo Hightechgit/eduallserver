@@ -11,13 +11,13 @@ const SubCategorieSchema = require("../Models/SubCategories");
 
 
 async function ShowAllProducts(req, res) {
-    const Data = [];
     try {
+        const Data = [];
         let ProductsRows = await ProductsSchema.find();
         for (let i = 0; i < ProductsRows.length; i++) {
             let ImgData = await FilesSchema.find({ file_product_code: ProductsRows[i]._id });
             Data.push({ content: ProductsRows[i], images: ImgData });
-        }
+        } 
         res.status(200).json(Data);
     } catch (error) {
         res.status(500).json({ message: "Something went wrong loading the data *", error: error });
