@@ -50,6 +50,4 @@ ServerApp.use(Router);
 //ServerApp.use();
 
 
-ServerApp.listen(6500, ()=>{
-   console.log("Server is running without  issues ...")
-});
+ServerApp.listen();
