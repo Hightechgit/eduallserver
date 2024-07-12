@@ -1,4 +1,4 @@
-///  [ ]    { }
+ ///  [ ]    { }
 const ProductsSchema = require("../Models/Products");
 const FilesSchema = require("../Models/FilesModel");
 const  multer = require(`multer`);  
@@ -14,18 +14,9 @@ async function ShowAllProducts(req, res) {
     try {
         const Data = [];
         let ProductsRows = await ProductsSchema.find();
-        let Images = await FilesSchema.find(); 
-
-          ProductsRows.forEach(el => {
-            let images = [];
-            Images.forEach(img => {
-              if(img.file_product_code === el._id)  images.push(img); 
-            });
-              Data.push({ content: ProductsRows[i], images: images });
-          });
-
+        let Images = await FilesSchema.find();  
         
-        res.status(200).json(Data);
+        res.status(200).json({d1:ProductsRows, d2:Images});
     } catch (error) {
         res.status(500).json({ message: "Something went wrong loading the data *", error: error });
     }
