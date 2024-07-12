@@ -2,7 +2,7 @@
 GET https://eduallserver.eduallsys.com
 
 ###
-GET https://goldpetserver.vercel.app/htmarketgetallproducts
+DELETE https://goldpetserver.vercel.app/htmarketdeleteproduct/66853cfe72d1339d1e3c16a7
 
 ###
 POST http://localhost:6500/htmarketregisternewproduct
@@ -27,13 +27,13 @@ POST http://localhost:6500/htmarketuploadimages
 content-type: application/json
 
 {
-    "name": "https://www.comprag.com/en/comprag/img_pop/05_adx.jpg", 
-    "code":"667458f3ff7b3a85f8f6a11c" 
+    "name": "https://www.comprag.com/en/comprag/img_pop/02_wos.jpg", 
+    "code":"667acca0d8db2c4d24dae4af" 
 } 
 
 
 ###
-GET  http://localhost:6500/
+GET  https://htmarketserver.vercel.app/htmarketgetallproducts
 
 
 
@@ -43,8 +43,8 @@ POST http://localhost:6500/htmarketregisternewproductserie
 content-type: application/json
 
 {
-    "name": "RDX", 
-    "subcategorie":"665f0691895b0ecccf8ef0a1" 
+    "name": "Série N/EN", 
+    "subcategorie":"668282539237c336e3de3865" 
 } 
 
 
@@ -55,7 +55,7 @@ POST http://localhost:6500/htmarketregisternewcategorie
 content-type: application/json
 
 {
-    "name": "Equipamentos"
+    "name": "acopladoras"
 } 
 
 
@@ -64,6 +64,15 @@ POST http://localhost:6500/htmarketregisternewsubcategorie
 content-type: application/json
 
 {
-    "name": "SECADORES DE ADSORÇÃO ADX-F", 
-    "categorie":"665f0704895b0ecccf8ef0ab"
+    "name": "Braçadeira de sela",
+    "categorie": "665f0a59895b0ecccf8ef0bd"
+} 
+
+###
+POST http://localhost:6500/htmarketlogin
+content-type: application/json
+
+{
+    "email": "kiossocamueg@gmail.com", 
+    "password":"12345678"
 } 
