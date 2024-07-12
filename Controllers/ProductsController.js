@@ -14,9 +14,8 @@ async function ShowAllProducts(req, res) {
     try {
         const Data = [];
         let ProductsRows = await ProductsSchema.find();
-        for (let i = 0; i < ProductsRows.length; i++) {
-            let ImgData = await FilesSchema.find({ file_product_code: ProductsRows[i]._id });
-            Data.push({ content: ProductsRows[i], images: ImgData });
+        for (let i = 0; i < ProductsRows.length; i++) { 
+            Data.push({ content: ProductsRows[i], images: [] });
         } 
         res.status(200).json(Data);
     } catch (error) {
