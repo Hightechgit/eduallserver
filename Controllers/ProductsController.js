@@ -14,10 +14,17 @@ async function ShowAllProducts(req, res) {
     try {
         const Data = [];
         let ProductsRows = await ProductsSchema.find();
-        let Images = await FilesSchema.find();
-        for (let i = 0; i < ProductsRows.length; i++) { 
-            Data.push({ content: ProductsRows[i], images: [] });
-        } 
+        let Images = await FilesSchema.find(); 
+
+          ProductsRows.forEach(el => {
+            let images = [];
+            Images.forEach(img => {
+              if(img.file_product_code === el._id)  images.push(img); 
+            });
+              Data.push({ content: ProductsRows[i], images: images });
+          });
+
+        
         res.status(200).json(Data);
     } catch (error) {
         res.status(500).json({ message: "Something went wrong loading the data *", error: error });
