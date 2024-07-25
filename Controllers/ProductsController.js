@@ -1,4 +1,4 @@
- ///  [ ]    { }
+///  [ ]    { }
 const ProductsSchema = require("../Models/Products");
 const FilesSchema = require("../Models/FilesModel");
 const  multer = require(`multer`);  
@@ -11,10 +11,12 @@ const SubCategorieSchema = require("../Models/SubCategories");
 
 
 async function ShowAllProducts(req, res) {
+    
     try {
         const Data = [];
         let ProductsRows = await ProductsSchema.find();
         let Images = await FilesSchema.find();  
+ 
         
         res.status(200).json({d1:ProductsRows, d2:Images});
     } catch (error) {
@@ -149,11 +151,23 @@ async function DeleteProduct(req, res) {
         await res.product.deleteOne();
         res.status(200).json({message:"Product deleted successfuly !"});
     } catch (error) {
+        console.log(error)
         res.status(500).json({message:"Error while trying to delete the product !", error:error});
     }
 }
 
 
+
+async function DeleteProductImage(req, res) {
+    try {
+        await res.image.deleteOne();
+        res.status(200).json({message:"image deleted successfuly !"});
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({message:"Error while trying to delete the product !", error:error});
+    }
+}
+
  
 
-module.exports = { ShowAllProducts,  ShowSingleProduct, uploadImageFile ,ShowAllElements, AddNewProduct , UpdateProduct, DeleteProduct};
+module.exports = { ShowAllProducts,  ShowSingleProduct, DeleteProductImage, uploadImageFile ,ShowAllElements, AddNewProduct , UpdateProduct, DeleteProduct};
