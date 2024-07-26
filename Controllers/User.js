@@ -100,9 +100,9 @@ async function Login (req, res){
 async function UserDetails(req, res) {
   try {
     // Fetch user details using decoded token
-    const user = await User.findOne({ email: req.user.email });
+    const user = await User.findOne({ email: req.session.user });
     if (!user) {
-      return res.status(404).json({ error: 'User not found' });
+        return res.status(404).json({ msg: 'User not founded !',sesseion:req.session });
     }
     res.status(200).json({ username: user.username, email: user.email });
   } catch (error) {
@@ -115,7 +115,7 @@ async function GetUserDetails(req, res) {
     // Fetch user details using decoded token
     const user = await User.findOne({ email: req.session.user });
     if (!user) {
-      return res.status(404).json({ msg: 'User not founded !'});
+         return res.status(404).json({ msg: 'User not founded !',ss:req.session });
     }
     res.status(200).json(user);
   } catch (error) {
