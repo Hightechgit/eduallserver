@@ -4,9 +4,9 @@ const GetProduct = require("../Middlewares/GetProduct");
 const { GetCategories, AddNewCategorie } = require("../Controllers/CategoriesController");
 const { AddNewSubCategorie } = require("../Controllers/SubCategoriesController");
 const { AddNewProductSerie, ShowAllProductsSeriesBySubCategorie, DeleteProductSerie } = require("../Controllers/ProductSeriesController");
-const { verifyToken, UserDetails, Login, RegisterUser, GetUserDetails, Getusers, UpdateUserData, GetUser, LogoutFromAccount, UpdateUserPassword } = require("../Controllers/User");
+const { verifyToken, UserDetails, Login, RegisterUser, GetUserDetails, Getusers, UpdateUserData, GetUser, LogoutFromAccount, UpdateUserPassword, sendProductOrder } = require("../Controllers/User");
 const GetProductImage = require("../Middlewares/GetImage");
-const { sendEmail, GetProductsFromCart, AddProductToCart, updateProductAmountFromCart, RemoveProductFromCart, sendProductOrder } = require("../Controllers/OrdersAndCart");
+const { sendEmail, GetProductsFromCart, AddProductToCart, updateProductAmountFromCart, RemoveProductFromCart } = require("../Controllers/OrdersAndCart");
 const GetCartItem = require("../Middlewares/GetCartItem");
 const Router = express.Router();
 
