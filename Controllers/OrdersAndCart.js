@@ -3,7 +3,7 @@ const CartProductsSchema = require("../Models/CartProducts");
 const FilesSchema = require("../Models/FilesModel");
 const nodeMailer = require("nodemailer");
 const { userSchema } = require("./User");
-
+var store = require('store'); 
 
 const sendEmail = async (messageBody, receiver, title) => {
   try {
@@ -42,7 +42,7 @@ const RemoveProductFromCart = async (req, res) => {
 
 const AddProductToCart = async (req, res) => {
   try {
-    let userid = req.session.user;
+    let userid = store.get('user');
     Item = await CartProductsSchema.findOne({cart_product_prid: req.body.product_id,  cart_product_user: userid});  
       if(userid !== null && userid !== undefined) {
         if (Item === null) {
@@ -67,7 +67,7 @@ const AddProductToCart = async (req, res) => {
 
 const GetProductsFromCart = async (req, res) => {
   try {
-    let userid = req.session.user;
+    let userid = store.get('user');
 
     let ProductsFromCartRows = await CartProductsSchema.find({ cart_product_user: userid });  // getting all user products added to cart
     let ProductsRows = await ProductsSchema.find();  // getting all products from product table

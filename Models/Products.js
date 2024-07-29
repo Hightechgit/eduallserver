@@ -8,7 +8,7 @@ const ProductSchema =  new moongose.Schema({
     product_categorie:{type:String, required:true},
     product_subcategorie:{type:String, required:false},
     product_visitors:{type:Number, required:false},
-    product_code:{type:Number, required:false},
+    product_code:{type:String, required:false},
     product_registerDate:{type:Date, required:true, default:Date.now},
     product_stockAmount:{type:Number, required:false},
     product_brand:{type:String, required:false}, 

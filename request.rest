@@ -1,11 +1,11 @@
 ###
-GET https://eduallserver.eduallsys.com
+GET  http://localhost:6500/aa
 
 ###
-DELETE https://goldpetserver.vercel.app/htmarketdeleteproduct/66853cfe72d1339d1e3c16a7
+DELETE http://localhost:6500/htmarketdeleteproduct/669a3b7410f8e5b359e8c970
 
 ###
-POST http://localhost:6500/htmarketregisternewproduct
+POST http://localhost:6500/sendemail
 content-type: application/json
 
 {
@@ -33,17 +33,17 @@ content-type: application/json
 
 
 ###
-GET  https://htmarketserver.vercel.app/htmarketgetallproducts
+DELETE http://localhost:6500/htmarketdeleteproduct/667156f0f3c0c102f638b533
 
 
 
 
 ###
-POST http://localhost:6500/htmarketregisternewproductserie
+POST http://localhost:6500/ss
 content-type: application/json
 
 {
-    "name": "Série N/EN", 
+    "code": "ola mundo", 
     "subcategorie":"668282539237c336e3de3865" 
 } 
 

@@ -61,7 +61,7 @@ async function AddNewProduct(req, res) {
         product_oldprice: req.body.oldprice, 
         product_description: req.body.description,
         product_categorie: req.body.category,
-        product_subcategorie: req.subcategorie,
+        product_code: req.subcategorie,
         product_code: req.body.code, 
         product_brand:req.body.brand,
         product_serie:req.body.serie,
@@ -83,7 +83,7 @@ async function UpdateProduct(req, res) {
     UpdatedProduct.product_description =  req.body.description;
     UpdatedProduct.product_oldprice =  req.body.oldprice;
     UpdatedProduct.product_categorie =  req.body.category;
-    UpdatedProduct.product_subcategorie =  req.body.subcategorie;
+    UpdatedProduct.product_code =  req.body.subcategorie;
     UpdatedProduct.product_stockAmount =  req.body.stockamount; 
     try {
         const updated =  await UpdatedProduct.save();
