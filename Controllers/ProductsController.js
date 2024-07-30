@@ -61,7 +61,7 @@ async function AddNewProduct(req, res) {
         product_oldprice: req.body.oldprice, 
         product_description: req.body.description,
         product_categorie: req.body.category,
-        product_code: req.body.subcategorie,
+        product_code: req.subcategorie,
         product_code: req.body.code, 
         product_brand:req.body.brand,
         product_serie:req.body.serie,

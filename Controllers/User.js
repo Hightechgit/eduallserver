@@ -198,6 +198,7 @@ async function UpdateUserPassword(req, res) {
 async function LogoutFromAccount(req, res) {
   try {
     req.session.destroy();
+    store.clearAll()
     res.status(200).json("Loggout !"); 
   } catch (error) {
     res.status(500).json({ error: 'Internal server error' });
