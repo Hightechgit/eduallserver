@@ -19,8 +19,9 @@ const userSchema = new mongoose.Schema({
 
 async function GetUser(req, res, next) {
   let Item;
+  let userid = req.params.email;
   try {
-      Item = await userSchema.findById({ email: store.get('user') }); 
+      Item = await userSchema.findById({ email: userid }); 
       if (Item === null) return res.status(404).json({ message: "Cannot find user" });
   } catch (error) {
       res.status(500).json({ message: error.message });
@@ -89,11 +90,10 @@ async function Login (req, res){
     if (!passwordMatch) {
       return res.status(401).json({ error: 'Credenciais Invalidas !' });
     }
-    store.set('user', req.body.email);
-    let dt =   store.get('user') 
+    store.set('user', req.body.email); 
     // Generate JWT token
-    const token = jwt.sign({ email: dt, status:"ok" }, 'secret');
-    res.status(200).json({ token , dt});
+    const token = jwt.sign({ email: req.body.email, status:"ok" }, 'secret');
+    res.status(200).json({ token});
   } catch (error) {
     res.status(500).json({ error: 'Internal server error' });
   }
@@ -103,7 +103,7 @@ async function Login (req, res){
 async function UserDetails(req, res) {
   try {
     // Fetch user details using decoded token
-    const user = await User.findOne({ email: req.user.email });
+    const user = await User.findOne({ email: req.params.email});
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
@@ -116,7 +116,7 @@ async function UserDetails(req, res) {
 async function GetUserDetails(req, res) { 
   try {
     // Fetch user details using decoded token
-    const user = await User.findOne({ email: store.get('user') });
+    const user = await User.findOne({ email: req.params.email });
     if (!user) {
       return res.status(404).json({ msg: 'User not founded !'});
     }
@@ -143,14 +143,14 @@ async function Getusers(req, res) {
 
 async function UpdateUserData(req, res) {
   try {
-   let currentUser = store.get('user'); 
+   let currentUser =   req.params.email;
     if(currentUser.trim().toLowerCase() !==  req.body.email){
       const existingUser = await User.findOne({ email: req.body.email });
       if (existingUser) {
         return res.status(400).json({ msg: 'Email já existe' });
       }
     } else {
-      const existingUser = await User.findOne({ email: store.get('user') })
+      const existingUser = await User.findOne({ email: req.params.email })
       let  UpdateCrUserData = existingUser;
 
       UpdateCrUserData.username = req.body.username;
@@ -169,8 +169,9 @@ async function UpdateUserData(req, res) {
 
 
 async function UpdateUserPassword(req, res) {
+  let userid = req.params.email;
   try {
-    const existingUser = await User.findOne({ email: store.get('user') })
+    const existingUser = await User.findOne({email:userid})
     if (!existingUser) {
       return res.status(401).json({ error: 'Conta não encomtrada !' });
     }
@@ -208,7 +209,7 @@ async function LogoutFromAccount(req, res) {
  
 
 const sendProductOrder = async (req, res) => {
-  let userid = store.get('user');
+  let userid = req.params.email;
   try {
     const user = await User.findOne({ email: userid });
     if (!user) return res.status(404).json({ error: 'User not founded !' });

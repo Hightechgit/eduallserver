@@ -1,5 +1,5 @@
 ###
-GET  http://localhost:6500/aa
+GET  http://localhost:6500/subs
 
 ###
 DELETE http://localhost:6500/htmarketdeleteproduct/669a3b7410f8e5b359e8c970
@@ -65,7 +65,8 @@ content-type: application/json
 
 {
     "name": "Braçadeira de sela",
-    "categorie": "665f0a59895b0ecccf8ef0bd"
+    "categorie": "665f0a59895b0ecccf8ef0bd",
+    "code":54789987448
 } 
 
 ###

@@ -42,7 +42,7 @@ const RemoveProductFromCart = async (req, res) => {
 
 const AddProductToCart = async (req, res) => {
   try {
-    let userid = store.get('user');
+    let userid =  req.params.email;
     Item = await CartProductsSchema.findOne({cart_product_prid: req.body.product_id,  cart_product_user: userid});  
       if(userid !== null && userid !== undefined) {
         if (Item === null) {
@@ -67,7 +67,7 @@ const AddProductToCart = async (req, res) => {
 
 const GetProductsFromCart = async (req, res) => {
   try {
-    let userid = store.get('user');
+    let userid =  req.params.email;
 
     let ProductsFromCartRows = await CartProductsSchema.find({ cart_product_user: userid });  // getting all user products added to cart
     let ProductsRows = await ProductsSchema.find();  // getting all products from product table

@@ -2,7 +2,7 @@ const express = require("express");
 const { ShowAllProducts, AddNewProduct, uploadImageFile, DeleteProduct, ShowSingleProduct, UpdateProduct, ShowAllElements, DeleteProductImage } = require("../Controllers/ProductsController");
 const GetProduct = require("../Middlewares/GetProduct");
 const { GetCategories, AddNewCategorie } = require("../Controllers/CategoriesController");
-const { AddNewSubCategorie } = require("../Controllers/SubCategoriesController");
+const { AddNewSubCategorie, GetSubCategories } = require("../Controllers/SubCategoriesController");
 const { AddNewProductSerie, ShowAllProductsSeriesBySubCategorie, DeleteProductSerie } = require("../Controllers/ProductSeriesController");
 const { verifyToken, UserDetails, Login, RegisterUser, GetUserDetails, Getusers, UpdateUserData, GetUser, LogoutFromAccount, UpdateUserPassword, sendProductOrder } = require("../Controllers/User");
 const GetProductImage = require("../Middlewares/GetImage");
@@ -36,19 +36,20 @@ Router.get("/htmarketuseraccountdets/", verifyToken, UserDetails);
 Router.post("/htmarketlogin/", Login);
 Router.post("/htmarketlogout/", LogoutFromAccount);
 Router.post("/htmarketuserregister", RegisterUser);
-Router.get("/getcurrentuserdata", GetUserDetails);
-Router.post("/updatecurrentuserdata", UpdateUserData);
-Router.post("/updatecurrentuserpassword",  UpdateUserPassword); 
+Router.get("/getcurrentuserdata/:email", GetUserDetails);
+Router.post("/updatecurrentuserdata/:email", UpdateUserData);
+Router.post("/updatecurrentuserpassword/:email",  UpdateUserPassword); 
 
 
 /* cart information  / newsletter */
 
-Router.get("/getallproductsfromcart", GetProductsFromCart);
-Router.post("/addnewproducttocart", AddProductToCart);
-Router.delete("/removeproductfromcart/:id", GetCartItem,  RemoveProductFromCart);
-Router.post("/updateproductammountfromcart/:id", GetCartItem, updateProductAmountFromCart);
-Router.post("/sendproductfromcartasorder", sendProductOrder);
+Router.get("/getallproductsfromcart/:email", GetProductsFromCart);
+Router.post("/addnewproducttocart/:email", AddProductToCart);
+Router.delete("/removeproductfromcart/:id,:email", GetCartItem,  RemoveProductFromCart);
+Router.post("/updateproductammountfromcart/:id,:email", GetCartItem, updateProductAmountFromCart);
+Router.post("/sendproductfromcartasorder/:email", sendProductOrder);
 
+Router.get("/subs", GetSubCategories);
  
 Router.post("/sendemailfornewsletter", async (req, res) => {
     try {

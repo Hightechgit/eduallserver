@@ -6,5 +6,4 @@ const ProductSubCategories = new moongose.Schema({
      subcategorie_code:{type:Number, required:true},
      subcategorie_registerDate:{type:Date, required:true, default:Date.now}
 });
-
 module.exports = moongose.model("ProductSubCategories", ProductSubCategories);
