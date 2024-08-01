@@ -2,7 +2,7 @@ const ProductSeriesSchema = require("../Models/ProductSeries");
 
 async function ShowAllProductsSeriesBySubCategorie(req, res) { 
     try { 
-       let Data = await ProductSeriesSchema.find({ serie_subcategorie: req.params.id}); 
+       let Data = await ProductSeriesSchema.find(); 
         res.status(200).json(Data);
     } catch (error) {
         res.status(500).json({ message: "Something went wrong loading the data ", error: error });
