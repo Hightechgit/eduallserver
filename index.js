@@ -26,7 +26,7 @@ const DatabaseConnect = async () => {
 }
 DatabaseConnect();
 
-const allowedDomains = ['http://localhost:3000', 'https://www.htmarkt.hightech-airer.pt', 'https://htmarkt.hightech-airer.pt', "https://hightech-airer.pt"]; 
+const allowedDomains = ['http://localhost:3000', 'https://www.htmarkt.hightech-airer.pt',  'https://htmarkt.hightech-airer.pt', "https://hightech-airer.pt"]; 
  ServerApp.use(cors({credentials:true,  origin:allowedDomains, methods:'GET,POST,DELETE,PUT'}));
 
 ServerApp.use(function (req, res, next) { 
