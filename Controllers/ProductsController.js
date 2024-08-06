@@ -99,7 +99,7 @@ async function uploadImageFile(req, res){
          const newData = await Data.save();
          res.status(201).json(newData); 
     } catch (error) {
-        res.status(500).json({errorge:error.message});
+        res.status(500).json({error:error.message});
     } 
 }
 
