@@ -9,7 +9,6 @@ const ServerApp = express();
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
-
 const DatabaseConnect = async () => {
     moongose.connect("mongodb+srv://hightech:123HIJP99@cluster0.bkueuua.mongodb.net",
         { useNewUrlParser: true });
@@ -36,20 +35,16 @@ ServerApp.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', true); 
     next();
 });
-
  
 const expiryDate = new Date(Date.now() + 24 * 60 * 60 * (1000*24*10))
  
-
 ServerApp.use(session({ 
     secret:"HtmarketSession",
     resave:true,
     saveUninitialized:true, 
     maxAge:1000000*19,
     expires: 1000000*19,
-    cookie: {
-      //secure: true,
-      //httpOnly: true, 
+    cookie: { 
       expires: expiryDate      
     }
   })); 
