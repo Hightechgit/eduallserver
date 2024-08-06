@@ -58,7 +58,7 @@ const AddProductToCart = async (req, res) => {
         }
          
     } else {
-      return res.status(500).json({ msg: "Precisa fazer login para adicionar o produto no carrinho !"});
+      return res.status(500).json({ msg: "Precisa fazer login para adicionar este produto no carrinho !"});
     } 
   } catch (error) { 
     res.status(500).json({ msg: "Lamentamos occoreu um erro ao adicionar o produto no carrinho !"});
