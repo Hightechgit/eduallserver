@@ -20,7 +20,7 @@ async function ShowAllProducts(req, res) {
         
         res.status(200).json({d1:ProductsRows, d2:Images});
     } catch (error) {
-        res.status(500).json({ message: "Something went wrong loading the data *", error: error });
+        res.status(500).json({ message: "Something went wrong loading the data !", error: error });
     }
 }
 
@@ -93,55 +93,14 @@ async function UpdateProduct(req, res) {
 }
 
 
-async function uploadImageFile(req, res){  
-    
-    /*
-    const uploadFile = async(fileObject) => {
-        
-       const bufferStream = new stream.PassThrough();
-       bufferStream.end(fileObject.buffer);
-       try { 
-          const { data } = await google.drive({ version: "v3", auth }).files.create({
-             media: {
-                 mimeType: fileObject.mimeType,
-                 body: bufferStream,
-             },
-             requestBody: {
-                 name: fileObject.originalname,
-                 parents: ["1UBIcXC13aSlxZZ6Me_5JSVtpS5hGzYdz"],
-             },
-             fields: "id,name",
-          });   
- 
-         console.log(data.id)
-         let  Data = new FilesSchema({name:data.id, code:req.body.code})
-         const newData = await Data.save();
-         res.status(201).json(newData); 
- 
-       } catch (error) {
-          res.status(500).json({message:error.message});
-       }
-    }; 
-    
-   const {files } = req;
-   for (let f = 0; f < files.length; f += 1) {
-      try {
-          await uploadFile(files[f]); 
-      } catch (error) { 
-       res.status(500).json({message:error.message});
-      }
-    }   
-    */
-
+async function uploadImageFile(req, res){   
     try {
         let  Data = new FilesSchema({file_name:req.body.name, file_product_code:req.body.code})
          const newData = await Data.save();
          res.status(201).json(newData); 
     } catch (error) {
         res.status(500).json({errorge:error.message});
-    }
-
-
+    } 
 }
 
 
